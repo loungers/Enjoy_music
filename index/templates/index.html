@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<link type="image/x-icon" rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/logo2-t.ico">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            margin-bottom: 0;
+            background-color: whitesmoke;
+        }
+
+        .header {
+            width: 100%;
+            height: 100px;
+            margin: 0 auto;
+            display: flex;
+            background-image: url("https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/007.jpg");
+        }
+
+        .logo {
+            float: left;
+            margin-left: 100px;
+            align-self: center;
+        }
+
+        .search-box {
+            float: left;
+            margin-left: 100px;
+            height: 40px;
+            width: 400px;
+            align-self: center;
+        }
+
+        .search-keyword, .search-button, .search-suggest {
+            float: left;
+        }
+
+        .search-keyword, .keyword {
+            height: 24.4px;
+            width: 300px;
+        }
+
+        .search-button {
+            margin-right: 20px;
+            height: 30.4px;
+        }
+
+
+        .nav-box-inner {
+            float: left;
+            height: 40px;
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .nav-box-inner ul li {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 25px;
+            list-style-type: none;
+
+        }
+
+        .nav-box-inner ul li a {
+            text-decoration: none;
+            display: block;
+            height: 30px;
+            font-size: 16px;
+            padding: 0 10px;
+            color: white;
+        }
+
+        .nav-box {
+            background-color: white;
+        }
+
+        .nav-box .category-nav {
+            float: left;
+            margin-left: 20px;
+            margin-right: 30px;
+        }
+
+
+        .banner {
+            height: 420px;
+        {#background-color: #6abeea;#} background-image: url("https://cdn.jsdelivr.net/gh/loungers/static_music@1.5/image/007.jpg");
+        }
+
+        .inner {
+            height: 420px;
+            position: relative;
+            text-align: center;
+        }
+
+        .inner ul li {
+            list-style-type: none;
+        }
+
+        /*轮播图开始*/
+        {#        * {#}
+        {#    margin: 0;#}
+        {#    padding: 0;#}
+
+        ul, li {
+            list-style: none;
+        }
+
+        .slider-container {
+            width: 56%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .slider, .slider-item {
+            padding-bottom: 40%;
+        }
+
+        .slider-item {
+            position: absolute;
+            /* 父辈.slider默认继承了.slide-container的宽度 */
+            width: 100%;
+            /* 相当于background-size: 100% auto */
+            background-size: 100%;
+            animation: fade 20s linear;
+            animation-iteration-count: infinite;
+        }
+
+        /* 设置背景图片 */
+        .slider-item1 {
+            background-image: url(https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/banner7.jpg);
+        }
+
+        .slider-item2 {
+            background-image: url(https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/banner4.jpg);
+        }
+
+        .slider-item3 {
+            background-image: url(https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/banner6.jpg);
+        }
+
+        .slider-item4 {
+            background-image: url(https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/banner3.jpg);
+        }
+
+        .slider-item5 {
+            background-image: url(https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/banner5.jpg);
+        }
+
+        /* 设置动画 */
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            20% {
+                opacity: 1;
+            }
+            25% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .slider-item {
+            opacity: 0;
+        }
+
+        .slider-item1 {
+            animation-delay: -1s;
+        }
+
+        .slider-item2 {
+            animation-delay: 3s;
+        }
+
+        .slider-item3 {
+            animation-delay: 7s;
+        }
+
+        .slider-item4 {
+            animation-delay: 11s;
+        }
+
+        .slider-item5 {
+            animation-delay: 15s;
+        }
+
+        .focus-container {
+            position: absolute;
+            bottom: 2%;
+            z-index: 7;
+            left: 50%;
+            margin-left: -45px;
+        }
+
+        .focus-container li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 10px;
+            background: #fff;
+        }
+
+        .focus-item {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            opacity: 0;
+            background: #51B1D9;
+            border-radius: inherit;
+            animation-duration: 20s;
+            animation-timing-function: linear;
+            animation-name: fade;
+            animation-iteration-count: infinite;
+        }
+
+        .focus-item1 {
+            animation-delay: -1s;
+        }
+
+        .focus-item2 {
+            animation-delay: 3s;
+        }
+
+        .focus-item3 {
+            animation-delay: 7s;
+        }
+
+        .focus-item4 {
+            animation-delay: 11s;
+        }
+
+        .focus-item5 {
+            animation-delay: 15s;
+        }
+
+        /*轮播图结束*/
+
+        .inner ul li img {
+            width: 1150px;
+            height: 420px;
+            max-height: 100%;
+            max-width: 100%;
+            vertical-align: middle;
+            list-style-type: none;
+        }
+
+        .subnav {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 190px;
+            background: rgba(0, 0, 0, .3);
+        {#padding-top:20px ;#}
+        }
+
+        .subnav li {
+            padding-left: 20px;
+            position: relative;
+            height: 45px;
+            line-height: 45px;
+            list-style-type: none;
+        }
+
+        .subnav a {
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .subnav a:hover {
+            color: #00b4ff;
+        }
+
+        .aside h2 {
+            color: #1c036c;
+        }
+
+        .today-header {
+            float: left;
+        }
+
+        .nav-box {
+            width: 100%;
+            height: 700px;
+        }
+
+        .products {
+            width: 100%;
+            height: 700px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .pro-hd {
+            height: 40px;
+        }
+
+        .pro-bd h4 {
+            font-weight: normal;
+            font-size: 18px;
+        }
+
+        .pro-hd a {
+            position: absolute;
+            right: 30px;
+            top: 0;
+        }
+
+        .pro-bd li {
+            width: 228px;
+            height: 270px;
+            overflow: hidden;
+            background-color: #fff;
+            float: left;
+            margin-left: 10px;
+            margin-right: 8px;
+            margin-bottom: 15px;
+            transition: all 0.4s;
+        }
+
+        .pro-bd li:hover {
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, .3);
+            transform: translateY(-10px);
+        }
+
+        .pro-bd li:nth-child(5n) {
+            margin-right: 0;
+        }
+
+        .pro-bd ul li a img {
+            transition: all 0.4s !important;
+            width: 232px !important;
+            height: 230px !important;
+            display: block !important;
+            top: 0px !important;
+            left: 0px !important;
+        {#margin: 0px !important;#} position: relative !important;
+        }
+
+        .pic img:hover {
+            margin-left: -5px;
+        }
+
+        .pro-titie {
+            width: 185px;
+            margin: 20px auto;
+            font-size: 14px;
+            color: #505050;
+        }
+
+        .name {
+            width: 185px;
+            margin: 20px auto;
+            font-size: 14px;
+            color: #505050;
+            text-decoration: none;
+            list-style-type: none;
+
+        }
+
+        .songname a {
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        .pro-bd p {
+            width: 185px;
+            margin: 20px auto;
+            color: #999;
+        }
+
+        .pro-bd p span {
+            color: #ff7c2d;
+        }
+
+
+        footer {
+            margin: 0;
+            width: 100%;
+            height: 150px;
+            background-color: whitesmoke;
+        }
+
+        footer .footer-l p {
+            font-size: 12px;
+            color: #2c323b;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="header">
+    <a href="/" class="logo" title="首页"><img alt="享听在线音乐平台"
+                                             src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/image/logo2-t.png"></a>
+    <div class="search-box">
+        <form id="searchForm" action="{% url 'search' 1 %}" method="post" target="_blank">
+            {% csrf_token %}
+            <div class="search-keyword">
+                <input name="kword" type="text" class="keyword" maxlength="120" placeholder="烟花易冷"/>
+            </div>
+            <input id="subSerch" type="submit" class="search-button" value="搜 索" style="outline: white"/>
+        </form>
+        <div id="suggest" class="search-suggest"></div>
+    </div>
+
+    <div class="nav-box-inner">
+        <ul class="nav clearfix">
+            <li><a href="/">首页</a></li>
+            <li><a href="{% url 'ranking' %}" target="_blank">歌单</a></li>
+            <li><a href="{% url 'home' 1 %}" target="_blank">用户</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="banner">
+    <div class="w inner">
+        <ul>
+            <section class="slider-container">
+                <!-- 轮播器 -->
+                <ul class="slider">
+                    <li class="slider-item slider-item1"></li>
+                    <li class="slider-item slider-item2"></li>
+                    <li class="slider-item slider-item3"></li>
+                    <li class="slider-item slider-item4"></li>
+                    <li class="slider-item slider-item5"></li>
+                </ul>
+                <!-- 轮播焦点 -->
+                <div class="focus-container">
+                    <ul class="floatfix">
+                        <li>
+                            <div class="focus-item focus-item1"></div>
+                        </li>
+                        <li>
+                            <div class="focus-item focus-item2"></div>
+                        </li>
+                        <li>
+                            <div class="focus-item focus-item3"></div>
+                        </li>
+                        <li>
+                            <div class="focus-item focus-item4"></div>
+                        </li>
+                        <li>
+                            <div class="focus-item focus-item5"></div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </ul>
+
+
+        <!--侧边栏-->
+        <div class="subnav">
+            <div class="aside">
+                <h2>热门歌曲</h2>
+                <ul>
+                    {% for song in play_hot_song %}
+                        <li>
+                            <a target="play" href="{% url 'play' song.song.song_id %}">{{ song.song.song_name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="nav-box">
+        <div class="products w">
+            <div class="pro-hd">
+                <h4>歌曲推荐</h4>
+            </div>
+
+            <div class="pro-bd clearfix">
+                <ul>
+                    {% for list in daily_recommendation %}
+                        {% if forloop.first %}
+                            <li class="first">
+                                {% else %}
+                            <li>
+                        {% endif %}
+
+                        <a class="pic layz_load pic_po" target="play" href="{% url 'play' list.song_id %}">
+                            <img data-src="https://cdn.jsdelivr.net/gh/loungers/songImg@1.1/{{ list.song_img }}">
+                        </a>
+                        <div class="name">
+                            <div class="songname"><a target="play"
+                                                     href="{% url 'play' list.song_id %}">{{ list.song_name }}</a></div>
+                            <div class="singer"><span>{{ list.song_singer }}</span></div>
+                        </div>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script data-main="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/js/index.js"
+            src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/js/require.js"></script>
+
+
+    <!--页面底部-->
+    <footer>
+        <div class="w">
+            <div class="footer-l" align="center">
+                <img src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/image/logo2-t.png" height="52"
+                     width="200" alt=""/>
+                <p>享听音乐在线平台一切数据来源于网络，仅供学习使用，所有责任与我们无关<br/>
+                    © 不离谱也太离谱组</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
+

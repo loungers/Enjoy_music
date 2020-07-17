@@ -1,0 +1,191 @@
+body {
+    background-image: url("https://cdn.jsdelivr.net/gh/loungers/static_music@1.9/image/003.jpg");
+    background-repeat: no-repeat;
+    /*background-size: 100%;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 1200px;
+    margin-left: 500px;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-detail-box {
+    margin: 20px 0 0;
+    padding: 0 0 20px;
+    border: 0px solid #e6e6e6;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.jp_img {
+    width: 360px;
+    height: 360px;
+    margin: 0 auto 20px;
+    border-radius: 70%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.nplayL-btns {
+    background: none;
+    height: 30px;
+    line-height: 30px;
+}
+
+.product-detail-box .product-pics {
+    display: inline;
+    float: left;
+    width: 400px;
+    margin: 20px 0 0 20px;
+    border-right: 0px solid #efefef;
+}
+
+.jplayer_content {
+    height: 280px;
+    overflow-y: auto;
+    text-align: center;
+    border-top: 0px solid #eee;
+}
+
+.jp-progress .jp-play-bar {
+    height: 100%;
+    background: #00a4ff;
+    border-radius: 5px;
+}
+
+.jp-controls .jp-play::before {
+    content: "\e634";
+    color: #00a4ff;
+}
+
+.jp-controls li a {
+    display: inline-block;
+    width: 26px;
+    line-height: 30px;
+    font-family: iconfont;
+    font-size: 14px;
+    color: #00a4ff;
+    cursor: pointer;
+    outline: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+}
+
+.jp-volume-bar .jp-volume-bar-value {
+    background: #00a4ff;
+    height: 100%;
+}
+
+.product-detail-box .links .minimum-link-A, .product-detail-box .links .minimum-link-B {
+    border: 1px solid #30C37E;
+    background: #00a4ff;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.jp-controls .jp-pause::before {
+    content: "\e695";
+    color: white;
+}
+
+.nplayL-btns li.current a {
+    color: white;
+    cursor: default;
+}
+
+.jp-volume-bar {
+    height: 6px;
+    width: 50px;
+    background: white;
+    float: right;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.product-detail-box .links > a {
+    float: left;
+    height: 30px;
+    margin: 16px 10px 0 0;
+    padding: 0 16px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.product-detail-box .product-detail-main {
+    float: left;
+    width: 510px;
+    margin: 20px 0 0 -1px;
+    padding: 0 0 0 20px;
+    border-left: 0px solid #efefef;
+}
+
+.header {
+    width: 1200px;
+    height: 70px;
+    padding: 0;
+    margin: 10px auto 0;
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 1px;
+    background-color: #F5F5F5;
+
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #00a4ff;
+    opacity: 0.7;
+}
+
+h3 {
+    margin-top: 70px;
+    margin-left: 110px;
+    color: #00a4ff;
+}
+
+.product-detail-box .playing-li {
+    padding-top: 5px;
+    width: 550px;
+    height: 248px;
+    overflow-y: auto;
+    margin-left: 110px;
+}
+
+.product-detail-box .playing-li li .name {
+    width: 180px;
+}
+
+.product-detail-box .playing-li li {
+    line-height: 30px;
+    border-top: 0px solid #eee;
+    font-size: 0;
+}

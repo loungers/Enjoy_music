@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<link type="image/x-icon" rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/logo2-t.ico">
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/css/common.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/css/play.css">
+<link type="text/css" rel="stylesheet" href="{% static "css/player.css" %}">
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<style type="text/css">
+    .v[data-class=v] {
+        font-size: 16px;
+        text-align: left;
+        border: 1px solid #f0f0f0;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        position: relative;
+        padding: 10px;
+    }
+
+    .footer {
+        padding: 10px 0;
+        width: 800px;
+        background: none;
+    }
+</style>
+<title>播放</title>
+</head>
+<body>
+<div class="header">
+    <a href="/" class="logo" title="首页"><img
+            src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.6/image/logo2-t.png"></a>
+</div><!--end header-->
+
+
+<div class="wrapper clearfix">
+    <div class="content">
+        <div class="product-detail-box clearfix">
+            <div class="product-pics">
+                <div class="music_box">
+                    <div id="jquery_jplayer_1" class="jp-jplayer"
+                         data-url={% static "songFile/" %}{{ song_info.song_file }}></div>
+                    <div class="jp_img layz_load pic_po" title="点击播放"><img
+                            data-src={% static "songImg/" %}{{ song_info.song_img }}>
+                    </div>
+                    <div id="jp_container_1" class="jp-audio">
+                        <div class="jp-gui jp-interface">
+                            <div class="jp-time-holder clearfix">
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar">
+                                        <div class="jp-play-bar"></div>
+                                    </div>
+                                </div>
+                                <div class="jp-time">
+                                    <span class="jp-current-time"></span> /
+                                    <span class="jp-duration"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <ul class="jp-controls clearfix">
+                                <li><a class="jp-play" tabindex="1" title="播放"></a><a class="jp-pause" tabindex="1"
+                                                                                      title="暂停"></a></li>
+                                <li><a class="jp-stop" tabindex="1" title="停止"></a></li>
+                                <li class="sound"><a class="jp-mute" tabindex="1" title="mute"></a><a class="jp-unmute"
+                                                                                                      tabindex="1"
+                                                                                                      title="unmute"></a>
+                                </li>
+                                <div class="nplayL-btns" id="playleixin">
+                                    <ul>
+                                        <li class="order current" data-run="order">
+                                            <a class="icon" href="javascript:void(0)" title="顺序播放"></a>
+                                        </li>
+                                        <li class="single" data-run="single">
+                                            <a class="icon" title="单曲循环" href="javascript:void(0)"></a>
+                                        </li>
+                                        <li class="random" data-run="random">
+                                            <a class="icon" title="随机播放" href="javascript:void(0)"></a>
+                                        </li>
+                                    </ul>
+                                </div><!--end nplayL-btns-->
+                            </ul>
+
+
+                            <div class="links clearfix">
+                                <a class="minimum-link-A click_down" href="{% url 'download' song_info.song_id %}"></a>
+                                <a class="minimum-link-A" href="{% url 'comment' song_info.song_id %}">评论</a>
+                            </div><!-- end links-->
+                        </div>
+                    </div>
+                </div><!--end music_box-->
+            </div><!--end product-pics-->
+
+            <div class="product-detail-main">
+                <div class="music_box">
+                    <div class="jplayer_content">
+                        <ul id="lrc_list" class="lrc_list"></ul>
+                    </div>
+                </div>
+                <textarea id="lrc_content" style="display: none;">
+                      {{ song_lyrics }}
+                    </textarea>
+                <h3 class="list_title">当前列表</h3>
+                <ul class="playing-li" id="songlist">
+                    <!--播放列表-->
+                    {% for list in play_list %}
+                        {% if list.song_id == song_info.song_id %}
+                            <li data-id="{{ list.song_id }}" class="current">
+                                {% else %}
+                            <li data-id="{{ list.song_id }}">
+                        {% endif %}
+                    <span class="num">{{ forloop.counter }}</span>
+                    <a class="name" href="{% url 'play' list.song_id %}" target="play">{{ list.song_name }}</a>
+                    <a class="singer" href="javascript:" target="_blank">{{ list.song_singer }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div><!-- end product-detail-main -->
+        </div><!-- end product-detail-box -->
+
+
+    </div>
+
+
+</div>
+
+{#<div class="footer">#}
+{#    <div id="vcomments"></div>#}
+{#    <script>#}
+{#        new Valine({#}
+{#            el: '#vcomments',#}
+{#            appId: 'bgLvpzTaQbvjWOMESljn87MF-gzGzoHsz',#}
+{#            appKey: 'IL11ivLalrqxTPkdm8BaYrbo'#}
+{#        })#}
+{#    </script>#}
+
+</div>
+
+<script data-main="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/js/play.js"
+        src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/js/require.js"></script>

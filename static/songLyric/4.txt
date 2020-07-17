@@ -1,0 +1,24 @@
+[ti:Misty]
+[ar:Misty]
+[al:Floppy Circus]
+[00:00.000]Excuses late，gentlemen.
+[00:03.000]One，Two。
+[00:30.000]En~~Up a tree~~
+[00:33.000]Clinging to a cloud~
+[00:36.000]En~~Up a tree~~
+[00:39.000]Clinging to a cloud~
+[00:43.000]En~~Up a tree~~
+[00:46.000]Clinging to a cloud~
+[00:49.000]En~~Up a tree~~
+[00:52.000]Clinging to a cloud~
+
+[00:00.000]绅士们久等了。
+[00:03.000]一，二。
+[00:30.000]恩~我在树梢~
+[00:33.000]依附在云端~
+[00:36.000]恩~我在树梢~
+[00:39.000]依附在云端~
+[00:43.000]恩~我在树梢~
+[00:46.000]依附在云端~
+[00:49.000]恩~我在树梢~
+[00:52.000]依附在云端~

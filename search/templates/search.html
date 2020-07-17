@@ -1,0 +1,210 @@
+{% block title %}
+    {% load staticfiles %}
+    <link type="image/x-icon" rel="shortcut icon"
+          href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/logo2-t.ico">
+    <link type="text/css" rel="stylesheet" href="{% static "css/newcommon.css" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "css/oldsearch.css" %}">
+    <link type="text/css" rel="stylesheet" href="{% static "css/newsearch.css" %}">
+
+    </head>
+    <body>
+    <div class="mod_header">
+        <div class="section_inner">
+            <h1 class="qqmusic_title"><a href="/"><img
+                    srcset="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/image/logo2-t.png"
+                    src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/image/logo2-t.png" alt="享听音乐"
+                    class="qqmusic_logo"></a></h1>
+            <!-- 导航 S -->
+            <!--
+                当前态 & hover 用 top_nav__link--current
+                参考Im.qq.com的交互
+            -->
+            <ul class="mod_top_nav" role="nav">
+                <li class="top_nav__item">
+                    <a href="/" class="top_nav__link" title="首页">首页</a>
+                </li>
+                <li class="top_nav__item">
+                    <a href="{% url 'home' 1 %}" class="top_nav__link" title="个人中心">用户</a>
+                </li>
+                <li class="top_nav__item">
+                    <a href="{% url 'ranking' %}" data-stat="y_new.top.artists" class="top_nav__link js_nav_click"
+                       title="歌曲排行" rel="noopener" target="_blank">歌单</a>
+                </li>
+            </ul>
+
+
+            <!-- 导航 E -->
+            <div class="mod_top_search" role="search">
+                <div class="mod_search_input">
+                    <form id="searchForm" action="{% url 'search' 1 %}" method="post" target="_self">
+                        {% csrf_token %}
+                        <input id="kword" name="kword" class="search_input__input" type="text" aria-label="请输入搜索内容"
+                               placeholder="" accesskey="s">
+                        <button class="search_input__btn"><i class="icon_search sprite"></i><span
+                                class="icon_txt">搜索</span></button>
+                    </form>
+                </div>
+                <div class="js_smartbox">
+                    <div class="mod_search_other" style="">
+                        <div class="search_hot">
+                            <dl class="search_hot__list" aria-labelledy="search_hot__tit">
+                                <dt class="search_hot__tit">热门搜索</dt>
+                                <dd>
+
+                                    <a href="/play.html" class="search_hot__link js_smartbox_search js_left"
+                                       data-name="夜空中最亮的星">
+                                        <span class="search_hot__number">1</span>
+                                        <span class="search_hot__name">夜空中最亮的星</span>
+
+                                    </a>
+
+                                    <a href="/play.html" class="search_hot__link js_smartbox_search js_left"
+                                       data-name="遇见">
+                                        <span class="search_hot__number">2</span>
+                                        <span class="search_hot__name">遇见</span>
+
+                                    </a>
+
+                                    <a href="/play.html" class="search_hot__link js_smartbox_search js_left"
+                                       data-name="说谎">
+                                        <span class="search_hot__number">3</span>
+                                        <span class="search_hot__name">说谎</span>
+
+                                    </a>
+
+                                    <a href="/play.html" class="search_hot__link js_smartbox_search js_left"
+                                       data-name="玻璃之情">
+                                        <span class="search_hot__number">4</span>
+                                        <span class="search_hot__name">玻璃之情</span>
+
+                                    </a>
+
+                                    <a href="/play.html" class="search_hot__link js_smartbox_search js_left"
+                                       data-name="当年情">
+                                        <span class="search_hot__number">5</span>
+                                        <span class="search_hot__name">当年情</span>
+
+                                    </a>
+
+                                </dd>
+
+                            </dl>
+                        </div>
+
+                        <div class="search_history">
+                            <dl class="search_history__list">
+                                <dt class="search_history__tit">搜索历史<a href="javascript:"
+                                                                       class="search_history__clear js_smartbox_delete_all"><i
+                                        class="icon_history_clear"></i><span class="icon_txt">清空</span></a></dt>
+
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__opt">
+
+                <!-- 用户信息 -->
+                <div class="popup_user" style="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mod_search"
+         style="background-image:url(https://cdn.jsdelivr.net/gh/loungers/static_music/image/001.jpg);" role="search">
+        <div class="mod_search_input">
+            <form id="searchForm" action="{% url 'search' 1 %}" method="post" target="_self">
+                {% csrf_token %}
+                <input id="kword" name="kword" class="search_input__input" aria-label="请输入搜索内容" type="text"
+                       placeholder="搜索关键字">
+                <button class="search_input__btn" type="submit"><i class="icon_search sprite"></i><span
+                        class="icon_txt">搜索</span></button>
+            </form>
+        </div>
+        <div class="mod_search_tips">热门搜索：<a href="/play/6.html" class="search_tips__item js_smartbox_search"
+                                             data-name="夜空中最亮的星">夜空中最亮的星</a><a href="/play/7.html"
+                                                                         class="search_tips__item js_smartbox_search"
+                                                                         data-name="遇见">遇见</a><a
+                href="/play/9.html" class="search_tips__item js_smartbox_search" data-name="说谎">说谎</a><a
+                href="/play/15.html" class="search_tips__item js_smartbox_search" data-name=“玻璃之情”>玻璃之情</a><a
+                href="/play/14.html" class="search_tips__item js_smartbox_search" data-name="当年情">当年情</a></div>
+        <div class="js_smartbox">
+            <div class="mod_search_other" style="">
+                <div class="search_hot">
+                    <dl class="search_hot__list" aria-labelledy="search_hot__tit">
+                        <dt class="search_hot__tit">热门搜索</dt>
+                        <dd>
+
+                        </dd>
+
+                    </dl>
+                </div>
+
+            </div>
+            <div class="mod_search_result" style=""></div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="header">
+
+    </div><!--end header-->
+    <div class="nav-box">
+
+    </div><!--end nav-box-->
+    <!--wrapper-->
+    <div class="wrapper clearfix" id="wrapper">
+        <div class="mod_songlist">
+            <ul class="songlist__header">
+                <li class="songlist__header_name">歌曲</li>
+                <li class="songlist__header_author">歌手</li>
+                <li class="songlist__header_time">时长</li>
+            </ul>
+            <ul class="songlist__list">
+                {% for list in contacts.object_list %}
+                    <li class="js_songlist__child">
+                        <div class="songlist__item">
+                            <div class="songlist__songname">
+                        <span class="songlist__songname_txt">
+                            <a href="{% url 'play' list.song_id %}" class="js_song"
+                               target="play">{{ list.song_name }}</a>
+                        </span>
+                            </div>
+                            <div class="songlist__artist">
+                                <a href="javascript:" class="singer_name">{{ list.song_singer }}</a>
+                            </div>
+                            <div class="songlist__time">{{ list.song_time }}</div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="page-box">
+                <div class="pagebar" id="pageBar">
+                    {% if contacts.has_previous %}
+                        <a href="{% url 'search' contacts.previous_page_number %}" class="prev" target="_self"><i></i>上一页</a>
+                    {% endif %}
+
+                    {% for page in contacts.paginator.page_range %}
+                        {% if contacts.number == page %}
+                            <span class="sel">{{ page }}</span>
+                        {% else %}
+                            <a href="{% url 'search' page %}" target="_self">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if contacts.has_next %}
+                        <a href="{% url 'search' contacts.next_page_number %}" class="next"
+                           target="_self">下一页<i></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div><!--end mod_songlist-->
+    </div><!--end wrapper-->
+    <!--footer-->
+
+{% endblock %}

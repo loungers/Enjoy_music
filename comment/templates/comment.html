@@ -1,0 +1,241 @@
+{% block title %}
+    {% load staticfiles %}
+    <link type="image/x-icon" rel="shortcut icon"
+          href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/logo2-t.ico">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/css/common.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/css/comment.css">
+    <head>
+        <meta charset="UTF-8">
+        <title>评论</title>
+        <style>
+            body {
+                background: url(https://cdn.jsdelivr.net/gh/loungers/static_music@1.9/image/017.jpg);
+                background-size: 100%
+            }
+
+            .section {
+                background: rgba(0, 0, 0, 0);
+            }
+
+            div {
+                border-style: none;
+            }
+
+            .pagebar .sel, .pagebar a:hover {
+                background: #00a4ff;
+                color: #fff;
+            {#border-color: #00a4ff;#}
+            }
+
+            .pagebar .historySel, .pagebar .sel, .pagebar a {
+                display: inline-block;
+                border: 1px solid #e6e6e6;
+                padding: 0 7px;
+                height: 34px;
+                min-width: 20px;
+                white-space: nowrap;
+                margin: 0 3px 0 2px;
+                vertical-align: top;
+                border-radius: 30px;
+            }
+
+            .cc-post-entry, .cc-post-entry-adv {
+                float: left;
+                margin-right: 5px;
+                padding: 0 10px;
+                height: 26px;
+                line-height: 26px;
+                border-radius: 30px !important;
+                background-color: #00a4ff !important;
+                color: #fff !important;
+                font-size: 14px;
+                white-space: nowrap;
+                border: none;
+            }
+
+            .comment-item .comments-user img {
+                -webkit-border-radius: 25px;
+                border-radius: 45px;
+                vertical-align: top;
+            }
+
+            .comments-score-new {
+                margin-bottom: 20px;
+                margin-left: 80px;
+                zoom: 1;
+                font-family: 'Microsoft YaHei', arial;
+            }
+
+            .comment-list {
+                margin-left: 170px;
+            }
+
+            .pagebar {
+                padding: 0 0 40px;
+                font-size: 14px;
+                font-family: arial;
+                line-height: 34px;
+                text-align: center;
+                margin-left: 180px;
+            }
+
+            .review-comments-score .comments-box textarea {
+                width: 450px;
+                border-radius: 15px;
+            }
+
+            .clearfix {
+                border: 0px;
+            }
+
+            .comment-list .comments-list-content {
+                padding: 18px 0 17px;
+                background: #fff;
+                border-radius: 45px;
+            }
+
+            .section .section-content {
+                border: 0px solid #e6e6e6;
+                border-top: 0 none;
+            }
+
+            .comments-box {
+                position: relative;
+                zoom: 1;
+                float: left;
+                width: 331px;
+                margin: 20px 0 0;
+                padding: 12px 20px 20px 20px;
+                border-left: 0px solid #f0f0f0;
+                font-family: 'Microsoft YaHei', arial;
+            }
+
+            .comment-list .comment-item {
+                position: relative;
+                zoom: 1;
+                margin: 0 0 20px;
+                padding: 0 0 0 140px;
+                border: 0px solid #1c1010;
+                background: #fafafa;
+                font-family: 'Microsoft YaHei', arial;
+            }
+
+            .comments-box textarea {
+                display: block;
+                width: 309px;
+                height: 40px;
+                overflow-y: auto;
+                padding: 7px 10px;
+                outline: 0 none;
+                resize: none;
+                border: 0px solid #e7e7e7;
+                color: #ccc;
+                font: 400 14px/20px 'Microsoft YaHei', arial;
+            }
+
+            .comments-box .comments-box-title {
+                height: 26px;
+                line-height: 26px;
+                font-size: 16px;
+                margin-left: 9px;
+            }
+        </style>
+
+    </head>
+    <body class="review">
+    <div class="header">
+        <a href="/" class="logo" title="首页"><img alt="享听音乐"
+                                                 src="https://cdn.jsdelivr.net/gh/loungers/static_music@1.4/image/logo2-t.png"></a>
+    </div><!--end header-->
+    <div class="wrapper">
+        <div class="breadcrumb">
+            {#            <a href="/">首页</a> &gt;#}
+            <a href="{% url 'play' song_id %}" target="_self">返回</a> &gt;
+            {#            <span>点评</span>#}
+        </div>
+        <div class="page-title" id="currentSong"></div>
+    </div>
+    <div class="wrapper">
+        <div class="section">
+            <div class="section-header" style="border:0px;background:none;"><h3 class="section-title"></h3></div>
+            <div class="section-content comments-score-new review-comments-score clearfix">
+                <div class="clearfix">
+                    <!--点评框-->
+                    <div class="comments-box">
+                        <div class="comments-box-title">{{ song_name }}</div>
+                        <div class="comments-default-score clearfix"></div>
+                        <form action="" method="post" id="usrform">
+                            {% csrf_token %}
+                            <div class="writebox">
+                                <textarea name="comment" form="usrform"
+                                          style="width: 200%;background: rgba(0,0,0,0.2);"></textarea>
+                            </div>
+                            <div class="comments-box-button clearfix" style="color: cornflowerblue">
+                                <input type="submit" value="发表评论" class="_j_cc_post_entry cc-post-entry"
+                                       style="background-color:cornflowerblue;border-radius:5px;">
+                                <div data-role="user-login" class="_j_cc_post_login"></div>
+                            </div>
+                            <div id="scoreTips2" style="padding-top:10px;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper clearfix">
+        <div class="content">
+            <div id="J_CommentList">
+                <ul class="comment-list">
+                    {% for item in contacts.object_list %}
+                        <li class="comment-item " style="background: rgba(0,0,0,0)">
+                            <div class="comments-user">
+                <span class="face">
+                <img src="{% static "image/touxiang.jpg" %}" width="60" height="60">
+                </span>
+                            </div>
+                            <div class="comments-list-content" style="background: rgba(0,0,0,0.1)">
+                                <div class="single-score clearfix">
+                                    <span class="date" style="color: #050505">{{ item.comment_date }}</span>
+                                    <div><span class="score" style="color: #050505">{{ item.comment_user }}</span></div>
+                                </div>
+                                <!--comments-content-->
+                                <div class="comments-content">
+                                    <div class="J_CommentContent comment-height-limit"
+                                         style="background: rgba(0,0,0,0)">
+                                        <div class="content-inner">
+                                            <div class="comments-words">
+                                                <p>{{ item.comment_text }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="page-box">
+                    <div class="pagebar" id="pageBar">
+                        {% if contacts.has_previous %}
+                            <a href="{% url 'comment' song_id %}?page={{ contacts.previous_page_number }}" class="prev"
+                               target="_self"><i></i>上一页</a>
+                        {% endif %}
+                        {% for page in contacts.paginator.page_range %}
+                            {% if contacts.number == page %}
+                                <span class="sel">{{ page }}</span>
+                            {% else %}
+                                <a href="{% url 'comment' song_id %}?page={{ page }}" target="_self">{{ page }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        {% if contacts.has_next %}
+                            <a href="{% url 'comment' song_id %}?page={{ contacts.next_page_number }}" class="next"
+                               target="_self">next<i></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>

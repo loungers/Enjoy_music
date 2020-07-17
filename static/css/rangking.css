@@ -1,0 +1,186 @@
+
+body {
+    background-image: url("https://cdn.jsdelivr.net/gh/loungers/static_music@1.7/image/007.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}
+
+
+.wrapper {
+    width: 1500px;
+    height: 1200px;
+}
+
+.side {
+    float: left;
+    width: 30%;
+    height: 1000px;
+
+}
+
+.side-nav {
+    width: 29%;
+    height: 700px;
+}
+
+.nav-head {
+    width: 220px;
+    height: 30px;
+    margin-top: 30px;
+    left: 42px;
+    position: relative;
+
+    padding: 14px;
+
+
+}
+
+.nav-head a {
+    position: relative;
+    top: 0;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+ul.cate-item {
+    position: relative;
+    top: 0px;
+}
+
+.computer {
+    width: 250px;
+    height: 30px;
+    margin-top: 19px;
+}
+
+.main-cate {
+    background-color: #ddffff !important;
+    padding: 14px;
+    border-left: 6px solid #ccc !important;
+    border-color: #2196F3 !important;
+}
+
+.main-cate a {
+    font-size: 25px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.main {
+    float: right;
+    width: 70%;
+}
+
+.main-head-box {
+    width: 100%;
+}
+
+.rank-list-table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed
+}
+
+.rank-list-table th {
+    height: 30px;
+    border-bottom: 1px solid #00ff3f;
+    background: #14d5f1;
+    font-weight: 400
+}
+
+.rank-brand-table td, .rank-list-table td {
+    height: 100px;
+    border-bottom: 1px dotted #e6e6e6
+}
+
+.rank-brand-table .n1, .rank-brand-table .n2, .rank-list-table .n1, .rank-list-table .n2 {
+    display: block;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    text-align: center
+}
+
+.rank-brand-table .n1, .rank-list-table .n1 {
+    background: #004cf3;
+    color: #ffffff
+}
+
+.rank-brand-table .n2, .rank-list-table .n2 {
+    background: #ee03ff;
+    color: #0c0000
+}
+
+.num-cell {
+    text-align: center
+}
+
+
+.rank-list-table .cell-1 {
+    width: 44px;
+}
+
+.rank-list-table .cell-2 {
+    width: 88px;
+}
+
+.rank-list-table .cell-3 {
+    padding-left: 20px;
+    width: 206px;
+    text-align: left
+}
+
+.rank-list-table .cell-4 {
+    width: 200px
+}
+
+.rank-list-table .cell-5 {
+    width: 100px
+}
+
+.rank-list-table .cell-7 {
+    width: 90px
+}
+
+.rank-list-table .pic {
+    display: block;
+    width: 82px;
+    height: 82px;
+    margin: 0 auto
+}
+
+.rank-list-table .pic img {
+    vertical-align: top;
+    border: 1px solid #e1e1e1
+}
+
+.rank-list-table .name-cell h3 {
+    padding: 0 0 0 15px;
+    width: 211px;
+    line-height: 22px;
+    font: 12px/22px arial
+}
+
+.rank-list-table .name-cell h3 a {
+    display: inline-block;
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.rank-list-table .name-cell .desc {
+    padding-left: 15px;
+    width: 211px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    zoom: 1
+}
+
+.rank-list-table .name-cell .desc a {
+    text-decoration: none;
+}
+
+
